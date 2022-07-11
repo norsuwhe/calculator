@@ -1,7 +1,9 @@
 $color-grey: rgba(178, 178, 178, 1);
 $color-light-grey: rgba(221, 221, 221, 1);
+$color-dark-grey: rgb(51, 51, 51);
 $color-black: rgba(32, 32, 32, 1);
 $color-red: rgba(255, 80, 80, 1);
+$color-dark-red: rgb(219, 32, 32);
 
 * {
     box-sizing: border-box;
@@ -67,13 +69,31 @@ button {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 64px 64px 64px 64px 64px;
 
-    &__operator_red {
+    &__clear-all,
+    &__delete,
+    &__plus-minus,
+    &__operator,
+    &__operand {
+        transition: background-color 0.5s ease;
+
+        &:active {
+            background-color: $color-dark-grey;
+        }
+    }
+
+    &__operator {
         color: $color-red;
     }
 
     &__equal {
         position: relative;
         color: #ffffff;
+
+        &:active {
+            .number-pad__equal-red-circle {
+                background-color: $color-dark-red;
+            }
+        }
     }
 
     &__equal-red-circle {
@@ -86,6 +106,7 @@ button {
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: -1;
+        transition: background-color 0.5s ease;
     }
 }
 
