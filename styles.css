@@ -45,6 +45,9 @@
       -ms-flex-align: end;
           align-items: flex-end;
   width: 75%;
+  height: 75px;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
 }
 
 .calculator__firstOperand, .calculator__secondOperand, .calculator__operator {
