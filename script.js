@@ -8,6 +8,9 @@ class Calculator {
     this.firstOperand = "";
     this.secondOperand = "";
     this.operator = null;
+    this.maximumInputLength = 31;
+    this.textShrinkLength = 21;
+    this.maximumResultLength = 11;
     this.setEvents();
   }
 
@@ -18,6 +21,8 @@ class Calculator {
   }
 
   addNumber(number) {
+    if (this.firstOperand.length + this.secondOperand.length >= this.maximumInputLength) return;
+    if (this.result.textContent) this.clearAll();
     if (number === '.') {
       if (this.operator === null && this.firstOperand.includes('.')) return
       if (this.operator && this.secondOperand.includes('.')) return;
@@ -27,6 +32,11 @@ class Calculator {
   }
 
   addOperator(operator) {
+    if (this.result.textContent) {
+      this.firstOperand = this.result.textContent
+      this.result.textContent = ''
+    }
+    if (this.firstOperand.length + this.secondOperand.length >= this.maximumInputLength) return;
     if (this.firstOperand === '') return;
     this.operator = operator;
   }
@@ -51,6 +61,18 @@ class Calculator {
     this.firstOperand = +this.firstOperand * -1;
   }
 
+  textShrink() {
+    if (this.firstOperand.length + this.secondOperand.length >= this.textShrinkLength) {
+      this.firstOperandTextValue.classList.add('font-small')
+      this.operatorTextValue.classList.add('font-small')
+      this.secondOperandTextValue.classList.add('font-small')
+    } else {
+      this.firstOperandTextValue.classList.remove('font-small')
+      this.operatorTextValue.classList.remove('font-small')
+      this.secondOperandTextValue.classList.remove('font-small')
+    }
+  }
+
   calculate() {
     let computedResult;
     const first = parseFloat(this.firstOperand)
@@ -71,7 +93,13 @@ class Calculator {
       default:
         return;
     }
+    if (computedResult.toString().length >= this.maximumResultLength) {
+      this.result.classList.add('font-small')
+    } else { this.result.classList.remove('font-small') }
     this.result.textContent = computedResult;
+    this.firstOperand = ''
+    this.operator = null
+    this.secondOperand = ''
   }
 
   setEvents() {
@@ -80,6 +108,7 @@ class Calculator {
       if (e.target.classList.contains("number-pad__operand")) {
         this.addNumber(e.target.textContent);
         this.updateInputDisplay();
+        this.textShrink();
       }
       if (e.target.classList.contains("number-pad__operator")) {
         this.addOperator(e.target.textContent);
@@ -88,6 +117,7 @@ class Calculator {
       if (e.target.classList.contains("number-pad__equal")) {
         if (this.operator === null) return;
         this.calculate();
+        this.updateInputDisplay();
       }
       if (e.target.classList.contains("number-pad__clear-all")) {
         this.clearAll();
@@ -96,6 +126,7 @@ class Calculator {
       if (e.target.classList.contains("number-pad__delete")) {
         this.delete();
         this.updateInputDisplay();
+        this.textShrink();
       }
       if (e.target.classList.contains("number-pad__plus-minus")) {
         this.plusMinus();

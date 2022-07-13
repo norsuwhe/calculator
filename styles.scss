@@ -32,9 +32,10 @@ $color-dark-red: rgb(219, 32, 32);
     &__display {
         display: flex;
         flex-direction: column;
+        justify-content: flex-end;
         align-items: flex-end;
         width: 75%;
-        height: 75px;
+        height: 100px;
         transition: all 1s ease;
     }
 
@@ -45,10 +46,24 @@ $color-dark-red: rgb(219, 32, 32);
         font-size: 1.5rem;
     }
 
+    &__input {
+        height: 50px;
+    }
+
+    &__firstOperand.font-small,
+    &__secondOperand.font-small,
+    &__operator.font-small {
+        font-size: 1rem;
+    }
+
     &__result {
         color: $color-light-grey;
         font-size: 3rem;
         font-weight: 500;
+
+        &.font-small {
+            font-size: 2rem;
+        }
     }
 
     &__divide-line {
