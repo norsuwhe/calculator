@@ -27,7 +27,9 @@ class Calculator {
       if (this.operator === null && this.firstOperand.includes('.')) return
       if (this.operator && this.secondOperand.includes('.')) return;
     };
+    if (number.includes('0') && this.firstOperand === '') return;
     if (this.operator === null) return (this.firstOperand = this.firstOperand + number);
+    if (number.includes('0') && this.secondOperand === '') return;
     this.secondOperand = this.secondOperand + number;
   }
 
@@ -96,7 +98,7 @@ class Calculator {
     if (computedResult.toString().length >= this.maximumResultLength) {
       this.result.classList.add('font-small')
     } else { this.result.classList.remove('font-small') }
-    this.result.textContent = computedResult;
+    this.result.textContent = parseFloat(computedResult.toFixed(6));
     this.firstOperand = ''
     this.operator = null
     this.secondOperand = ''
