@@ -46,10 +46,6 @@ $color-dark-red: rgb(219, 32, 32);
         font-size: 1.5rem;
     }
 
-    &__input {
-        height: 50px;
-    }
-
     &__firstOperand.font-small,
     &__secondOperand.font-small,
     &__operator.font-small {
@@ -62,7 +58,7 @@ $color-dark-red: rgb(219, 32, 32);
         font-weight: 500;
 
         &.font-small {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
     }
 
