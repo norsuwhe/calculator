@@ -1,10 +1,10 @@
 class Calculator {
   constructor() {
-    this.inputDisplay = document.querySelector(".calculator__input");
-    this.firstOperandTextValue = document.querySelector(".calculator__firstOperand");
-    this.secondOperandTextValue = document.querySelector(".calculator__secondOperand");
-    this.operatorTextValue = document.querySelector(".calculator__operator");
-    this.result = document.querySelector('.calculator__result')
+    this.inputDisplay = document.querySelector(".display__input");
+    this.firstOperandTextValue = document.querySelector(".display__firstOperand");
+    this.secondOperandTextValue = document.querySelector(".display__secondOperand");
+    this.operatorTextValue = document.querySelector(".display__operator");
+    this.result = document.querySelector('.display__result')
     this.firstOperand = "";
     this.secondOperand = "";
     this.operator = null;
@@ -65,13 +65,13 @@ class Calculator {
 
   textShrink() {
     if (this.firstOperand.length + this.secondOperand.length >= this.textShrinkLength) {
-      this.firstOperandTextValue.classList.add('font-small')
-      this.operatorTextValue.classList.add('font-small')
-      this.secondOperandTextValue.classList.add('font-small')
+      this.firstOperandTextValue.classList.add('display__firstOperand_font-small')
+      this.operatorTextValue.classList.add('display__operator_font-small')
+      this.secondOperandTextValue.classList.add('display__secondOperand_font-small')
     } else {
-      this.firstOperandTextValue.classList.remove('font-small')
-      this.operatorTextValue.classList.remove('font-small')
-      this.secondOperandTextValue.classList.remove('font-small')
+      this.firstOperandTextValue.classList.remove('display__firstOperand_font-small')
+      this.operatorTextValue.classList.remove('display__operator_font-small')
+      this.secondOperandTextValue.classList.remove('display__secondOperand_font-small')
     }
   }
 

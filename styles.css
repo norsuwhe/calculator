@@ -33,7 +33,13 @@
           transform: translate(-50%, -50%);
 }
 
-.calculator__display {
+.calculator__divide-line {
+  width: 75%;
+  border: 1px solid #717171;
+  margin: 16px 0 16px 0;
+}
+
+.display {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -53,38 +59,23 @@
   transition: all 1s ease;
 }
 
-.calculator__firstOperand, .calculator__secondOperand, .calculator__operator {
-  color: #b2b2b2;
-  font-size: 1.5rem;
-}
-
-.calculator__firstOperand.font-small, .calculator__secondOperand.font-small, .calculator__operator.font-small {
-  font-size: 1rem;
-}
-
-.calculator__result {
+.display__result {
   color: #dddddd;
   font-size: 3rem;
   font-weight: 500;
 }
 
-.calculator__result.font-small {
+.display__result_font-small {
   font-size: 1.5rem;
 }
 
-.calculator__divide-line {
-  width: 75%;
-  border: 1px solid #717171;
-  margin: 16px 0 16px 0;
-}
-
-button {
+.display__firstOperand, .display__secondOperand, .display__operator {
   color: #b2b2b2;
   font-size: 1.5rem;
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
+}
+
+.display__firstOperand_font-small, .display__secondOperand_font-small, .display__operator_font-small {
+  font-size: 1rem;
 }
 
 .number-pad {
@@ -104,6 +95,15 @@ button {
 
 .number-pad__clear-all:active, .number-pad__delete:active, .number-pad__plus-minus:active, .number-pad__operator:active, .number-pad__operand:active {
   background-color: #333333;
+}
+
+.number-pad__button {
+  color: #b2b2b2;
+  font-size: 1.5rem;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .number-pad__operator {

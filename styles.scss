@@ -29,14 +29,30 @@ $color-dark-red: rgb(219, 32, 32);
     left: 50%;
     transform: translate(-50%, -50%);
 
-    &__display {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
+    &__divide-line {
         width: 75%;
-        height: 100px;
-        transition: all 1s ease;
+        border: 1px solid rgba(113, 113, 113, 1);
+        margin: 16px 0 16px 0;
+    }
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 75%;
+    height: 100px;
+    transition: all 1s ease;
+
+    &__result {
+        color: $color-light-grey;
+        font-size: 3rem;
+        font-weight: 500;
+
+        &_font-small {
+            font-size: 1.5rem;
+        }
     }
 
     &__firstOperand,
@@ -46,36 +62,11 @@ $color-dark-red: rgb(219, 32, 32);
         font-size: 1.5rem;
     }
 
-    &__firstOperand.font-small,
-    &__secondOperand.font-small,
-    &__operator.font-small {
+    &__firstOperand_font-small,
+    &__secondOperand_font-small,
+    &__operator_font-small {
         font-size: 1rem;
     }
-
-    &__result {
-        color: $color-light-grey;
-        font-size: 3rem;
-        font-weight: 500;
-
-        &.font-small {
-            font-size: 1.5rem;
-        }
-    }
-
-    &__divide-line {
-        width: 75%;
-        border: 1px solid rgba(113, 113, 113, 1);
-        margin: 16px 0 16px 0;
-    }
-}
-
-button {
-    color: $color-grey;
-    font-size: 1.5rem;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
 }
 
 .number-pad {
@@ -94,6 +85,15 @@ button {
         &:active {
             background-color: $color-dark-grey;
         }
+    }
+
+    &__button {
+        color: $color-grey;
+        font-size: 1.5rem;
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
     }
 
     &__operator {
